@@ -1,1 +1,29 @@
-sadsfasfs
+api.php
+
+<php
+
+// Aqui venen les routes per a que pugui indexar o fer el show. 
+// Ara al controller es va per fer un controller del api
+
+Route::get('/champions,[ChampionController::class,'apiIndex']);
+Route::get('/champions/{name},[ChampionController::class,'apiShow']);
+
+
+
+?>
+
+
+al championcontroller
+
+public function apiIndex () {
+
+		$champions = Champions::select('id', 'name', 'imagefull')->get();
+		return $champions;
+	}
+
+public function apiShow (int $id  // O el nom del que tinguis ) {
+
+		
+		$champions = Champion::find($id // O el nom del que tinguis)//->select(';
+		return $champions;
+	}
